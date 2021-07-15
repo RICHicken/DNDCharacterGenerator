@@ -1,41 +1,59 @@
 <!doctype html>
 
 <html>
-    <head>
-        <link rel="stylesheet" href="sheet.css">
-        <title>
-            Character Generator
-        </title>
-    </head>
 
-    <body>
-        <script src="generator.js"></script>
-        
-        <button onclick="startGenerate()">Generate</button>
+<head>
+    <link rel="stylesheet" href="sheet.css">
+    <title>
+        Character Generator
+    </title>
 
-        <div>
-            <span style="font-size: 30px">Race: </span>
-            <span style="font-size: 20px", id="race"></span>
-        </div>
-        
-        <div>
-            <span style="font-size: 30px">Class: </span>
-            <span style="font-size: 20px", id="class"></span>
-        </div>
-                
-        <div>
-            <span style="font-size: 30px">Alignment: </span>
-            <span style="font-size: 20px", id="alignment"></span>
-        </div>
+    <style>
+        .tab {
+            padding-left: 55px;
+        }
 
-        <div>
-            <span style="font-size: 30px">Traits: </span>
-            <p style="font-size: 20px", id="trait1"></p>
-            <p style="font-size: 20px", id="trait2"> </p>
-            <p style="font-size: 20px", id="trait3"></p>
-        </div>
+        .button {
+            margin: auto;    
+            position: relative;
+            left: 60%;
+            width: 40%;
+            height: 100px;
+        }
+    </style>
 
 
+</head>
 
-    </body>
+<body>
+    <script src="generator.js"></script>
+
+    <button class="button" onclick="startGenerate()">Generate</button>
+
+    <div>
+        <span style="font-size: 30px">Race: </span>
+        <span style="font-size: 20px" , id="race"></span>
+    </div>
+
+    <div>
+        <span style="font-size: 30px">Class: </span>
+        <span style="font-size: 20px" , id="class"></span>
+    </div>
+
+    <div>
+        <span style="font-size: 30px">Alignment: </span>
+        <span style="font-size: 20px" , id="alignment"></span>
+    </div>
+
+    <div>
+        <span style="font-size: 30px">Traits: </span>
+        <p class="tab" style="font-size: 20px" , id="trait1"></p>
+        <p class="tab" style="font-size: 20px" , id="trait2"> </p>
+        <p class="tab" style="font-size: 20px" , id="trait3"></p>
+    </div>
+
+
+
+</body>
+
 </html>
