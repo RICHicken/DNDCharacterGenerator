@@ -1,0 +1,19 @@
+Valleyborn Human
+Imperial Human
+Ferisian Noble Human
+Blood Elf
+Silver Elf
+Cherrywine Lapine
+Honeymead Lapine
+Shroomcap Goblin
+Crag Goblin
+Blood Orc
+Cave Orc
+Scholarly Dragonborn
+Primal Dragonborn
+Dawnmarked Leonin
+Duskmarked Leonin
+Silvertongue Oni
+Shifter Oni
+Pondspeaker Hyabu
+Inquisitive Hyabu
