@@ -45,10 +45,10 @@ function generateClass(result) {
 
 function generatePersonality(result) {
 
-
+    let amount = parseInt(document.getElementById("traits").value)
     document.getElementById("trait1").innerHTML = result[0];
-    document.getElementById("trait2").innerHTML = result[1];
-    document.getElementById("trait3").innerHTML = result[2];
+    document.getElementById("trait2").innerHTML = (amount < 2) ? "" : result[1];
+    document.getElementById("trait3").innerHTML = (amount < 3) ? "" : result[2];
 }
 
 function generateAlignment(result) {
@@ -56,6 +56,7 @@ function generateAlignment(result) {
 }
 
 function startGenerate() {
+
     races = [];
     classes = [];
 
