@@ -1,0 +1,13 @@
+Dragonborn
+Hill Dwarf
+Mountain Dwarf
+Drow
+High Elf
+Wood Elf
+Forest Gnome
+Rock Gnome
+Half-Elf
+Half-Orc
+Lightfoot Halfling
+Stout Halfling
+Human
