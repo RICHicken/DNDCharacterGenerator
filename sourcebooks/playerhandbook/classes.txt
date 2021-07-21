@@ -3,7 +3,8 @@ Bard
 Cleric
 Druid
 Fighter
-Monk Paladin
+Monk 
+Paladin
 Ranger
 Rogue
 Sorcerer
