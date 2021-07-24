@@ -2,7 +2,7 @@ const category = {
     RACE: "race",
     CLASS: "class",
     ALL: "all",
-}
+};
 
 const raceText = "races.txt";
 const classText = "classes.txt";
@@ -44,18 +44,16 @@ const defaultCheckedRaces = [ph];
 const defaultCheckedClasses = [ph];
 
 function setup() {
-    console.log("Looking for sourcebook files")
-    console.warn("Any \"errors\" shown here are fine, it's simply because these sourcebooks don't have the file they are looking for")
+    console.log("Looking for sourcebook files");
+    console.warn("Any \"errors\" shown here are fine, it's simply because these sourcebooks don't have the file they are looking for");
     getFiles(dict.values(), [], []);
 }
 
 async function getFiles(iterator, raceBoxes, classBoxes) {
-
-    let current = iterator.next()
-
+    let current = iterator.next();
     if (current.done) {
-        createCheckboxes(raceBoxes, classBoxes)
-        return
+        createCheckboxes(raceBoxes, classBoxes);
+        return;
     }
 
     let findFile = async function (file) {
@@ -65,15 +63,14 @@ async function getFiles(iterator, raceBoxes, classBoxes) {
         if (foundRace.ok) {
             raceBoxes[raceBoxes.length] = file;
         }
-
         if (foundClass.ok) {
             classBoxes[classBoxes.length] = file;
         }
 
-        getFiles(iterator, raceBoxes, classBoxes)
-    }
+        getFiles(iterator, raceBoxes, classBoxes);
+    };
 
-    findFile(current.value)
+    findFile(current.value);
 }
 
 function createCheckboxes(raceBoxes, classBoxes) {
@@ -88,21 +85,19 @@ function createCheckboxes(raceBoxes, classBoxes) {
             amount++;
             belongs = category.RACE;
         }
-
         if (classBoxes.includes(value)) {
             amount++;
             belongs = category.CLASS;
         }
-
         if (amount >= 2) {
             belongs = category.ALL;
         }
 
-        checkBoxAlign.set(value, belongs)
-    })
+        checkBoxAlign.set(value, belongs);
+    });
 
     let appendRaceHTML = async function (curHTML, iterator) {
-        let current = iterator.next()
+        let current = iterator.next();
 
         if (current.done) {
             applyHTML("raceboxes", curHTML);
@@ -115,7 +110,7 @@ function createCheckboxes(raceBoxes, classBoxes) {
                 curHTML += "\n" +
                     `<input type=\"checkbox\" id="${getKeyByValue(current.value)}R"`;
                 if (defaultCheckedRaces.includes(current.value)) {
-                    curHTML += 'checked'
+                    curHTML += 'checked';
                 }
 
                 curHTML += '> <br>';
@@ -125,7 +120,7 @@ function createCheckboxes(raceBoxes, classBoxes) {
                 curHTML += "\n" + "<br>";
                 appendRaceHTML(curHTML, iterator);
         }
-    }
+    };
 
     let appendClassHTML = async function (curHTML, iterator) {
         let current = iterator.next();
@@ -142,7 +137,7 @@ function createCheckboxes(raceBoxes, classBoxes) {
                     .then(response => response.text())
                     .then(data => {
                         curHTML += "\n" +
-                            `<input type=\"checkbox\" id="${getKeyByValue(current.value)}C"`
+                            `<input type=\"checkbox\" id="${getKeyByValue(current.value)}C"`;
 
                         if (defaultCheckedClasses.includes(current.value)) {
                             curHTML += 'checked';
@@ -150,7 +145,7 @@ function createCheckboxes(raceBoxes, classBoxes) {
 
                         curHTML += `><label for=\"${data}C\" style=\"font-size: 20px\">${data}</label><br>`;
                         appendClassHTML(curHTML, iterator);
-                    })
+                    });
                 break;
             //labels for race are showing in the "class" section because the class is on the right column on the screen
             case category.RACE:
@@ -159,10 +154,10 @@ function createCheckboxes(raceBoxes, classBoxes) {
                     .then(data => {
                         curHTML += "\n" + `<label for=\"${getKeyByValue(current.value)}R\" style=\"font-size: 20px\"><span class=raceoffset>${data}</label><br>`;
                         appendClassHTML(curHTML, iterator);
-                    })
+                    });
                 break;
         }
-    }
+    };
 
     appendRaceHTML("", checkBoxAlign.keys());
     appendClassHTML("", checkBoxAlign.keys());
@@ -182,7 +177,7 @@ function generateClass(result) {
 
 function generatePersonality(result) {
 
-    let amount = parseInt(document.getElementById("traits").value)
+    let amount = parseInt(document.getElementById("traits").value);
     document.getElementById("trait1").innerHTML = result[0];
     document.getElementById("trait2").innerHTML = (amount < 2) ? "" : result[1];
     document.getElementById("trait3").innerHTML = (amount < 3) ? "" : result[2];
