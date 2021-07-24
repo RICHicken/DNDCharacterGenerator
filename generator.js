@@ -40,6 +40,9 @@ const dict = new Map([
     ['eoac', eoac],
 ]);
 
+const defaultCheckedRaces = [ph];
+const defaultCheckedClasses = [ph];
+
 function setup() {
     console.log("Looking for sourcebook files")
     console.warn("Any \"errors\" shown here are fine, it's simply because these sourcebooks don't have the file they are looking for")
@@ -110,11 +113,15 @@ function createCheckboxes(raceBoxes, classBoxes) {
             case category.RACE:
             case category.ALL:
                 curHTML += "\n" +
-                    `<input type=\"checkbox\" id="${getKeyByValue(current.value)}R" checked> <br>`;
+                    `<input type=\"checkbox\" id="${getKeyByValue(current.value)}R"`;
+                if (defaultCheckedRaces.includes(current.value)) {
+                    curHTML += 'checked'
+                }
+
+                curHTML += '> <br>';
                 appendRaceHTML(curHTML, iterator);
                 break;
             default:
-
                 curHTML += "\n" + "<br>";
                 appendRaceHTML(curHTML, iterator);
         }
@@ -135,8 +142,13 @@ function createCheckboxes(raceBoxes, classBoxes) {
                     .then(response => response.text())
                     .then(data => {
                         curHTML += "\n" +
-                            `<input type=\"checkbox\" id="${getKeyByValue(current.value)}C" checked>` +
-                            `<label for=\"${data}C\" style=\"font-size: 20px\">${data}</label><br>`;
+                            `<input type=\"checkbox\" id="${getKeyByValue(current.value)}C"`
+
+                        if (defaultCheckedClasses.includes(current.value)) {
+                            curHTML += 'checked';
+                        }
+
+                        curHTML += `><label for=\"${data}C\" style=\"font-size: 20px\">${data}</label><br>`;
                         appendClassHTML(curHTML, iterator);
                     })
                 break;
