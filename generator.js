@@ -31,12 +31,10 @@ const dict = new Map([
     ['mtof', mtof],
     ['tcoe', tcoe],
     ['eoac', eoac],
-  ])
+]);
 
 function generateRace(result) {
-    document.getElementById("race").innerHTML =
-
-        result;
+    document.getElementById("race").innerHTML = result;
 }
 
 function generateClass(result) {
@@ -56,7 +54,6 @@ function generateAlignment(result) {
 }
 
 function startGenerate() {
-
     races = [];
     classes = [];
 
@@ -72,14 +69,14 @@ function startGenerate() {
 
     if (arraysEqual(races, prevCheckedRaces)) {
         generate(generateRace, prevPossibleRaces);
-    }else {
+    } else {
         prevCheckedRaces = races;
         appendPossibilitiesAndGenerate([], races, sourcebooksFolder, raceText, 0, generateRace);
     }
 
     if (arraysEqual(classes, prevCheckedClasses)) {
         generate(generateClass, prevPossibleClasses);
-    }else {
+    } else {
         prevCheckedClasses = classes;
         appendPossibilitiesAndGenerate([], classes, sourcebooksFolder, classText, 0, generateClass);
     }
@@ -88,18 +85,16 @@ function startGenerate() {
 }
 
 function appendPossibilitiesAndGenerate(array, checked, prefix, suffix, index, func) {
-
     if (index >= checked.length) {
         generate(func, array);
 
-        if(suffix == raceText) {
+        if (suffix == raceText) {
             prevPossibleRaces = array;
             console.log("Race list changed, new list is: " + array);
         } else if (suffix == classText) {
             prevPossibleClasses = array;
             console.log("Class list changed, new list is: " + array);
         }
-
         return;
     }
 
@@ -107,10 +102,10 @@ function appendPossibilitiesAndGenerate(array, checked, prefix, suffix, index, f
         .then(response => response.text())
         .then(data => {
             dataArray = data.split(/\r?\n/);
-            
+
             Array.prototype.push.apply(array, dataArray);
-            appendPossibilitiesAndGenerate(array, checked, prefix, suffix, index+1, func);
-        })
+            appendPossibilitiesAndGenerate(array, checked, prefix, suffix, index + 1, func);
+        });
 }
 
 function generateRandomFromFile(func, file) {
@@ -119,7 +114,7 @@ function generateRandomFromFile(func, file) {
         .then(data => {
             dataArray = data.split(/\r?\n/);
             generate(func, dataArray);
-        })
+        });
 }
 
 function generateMultipleRandomFromFile(func, file, amount) {
@@ -128,7 +123,7 @@ function generateMultipleRandomFromFile(func, file, amount) {
         .then(data => {
             dataArray = data.split(/\r?\n/);
             generateMultiple(func, dataArray, amount);
-        })
+        });
 }
 
 function generate(func, array) {
@@ -138,14 +133,13 @@ function generate(func, array) {
 }
 
 function generateMultiple(func, array, amount) {
+    results = randomInts(array.length, amount);
 
-            results = randomInts(array.length, amount);
+    for (let i = 0; i < amount; i++) {
+        results[i] = array[results[i]];
+    }
 
-            for (let i = 0; i < amount; i++) {
-                results[i] = array[results[i]];
-            }
-
-            func(results);
+    func(results);
 }
 
 function randomInt(max) {
@@ -153,13 +147,11 @@ function randomInt(max) {
 }
 
 function randomInts(max, amount) {
-
     if (amount == 0 || amount > max) {
         return;
     }
 
     nums = [];
-
     nums[0] = randomInt(max);
 
     for (let i = 1; i < amount; i++) {
@@ -171,12 +163,11 @@ function randomInts(max, amount) {
         else {
             nums[i] = num;
         }
-
     }
 
     return nums;
 }
 
-function arraysEqual(a1,a2) {
-    return JSON.stringify(a1)==JSON.stringify(a2);
+function arraysEqual(a1, a2) {
+    return JSON.stringify(a1) == JSON.stringify(a2);
 }
