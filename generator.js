@@ -1,5 +1,12 @@
+const category = {
+    RACE: "race",
+    CLASS: "class",
+    ALL: "all",
+}
+
 const raceText = "races.txt";
 const classText = "classes.txt";
+const titleText = "title.txt";
 const personalityText = "personalities.txt";
 const alignmentsText = "alignments.txt";
 
@@ -32,6 +39,126 @@ const dict = new Map([
     ['tcoe', tcoe],
     ['eoac', eoac],
 ]);
+
+function setup() {
+    console.log("Looking for sourcebook files")
+    console.warn("Any \"errors\" shown here are fine, it's simply because these sourcebooks don't have the file they are looking for")
+    getFiles(dict.values(), [], []);
+}
+
+async function getFiles(iterator, raceBoxes, classBoxes) {
+
+    let current = iterator.next()
+
+    if (current.done) {
+        createCheckboxes(raceBoxes, classBoxes)
+        return
+    }
+
+    let findFile = async function (file) {
+        let foundRace = await (fetch(sourcebooksFolder + file + raceText).catch());
+        let foundClass = await (fetch(sourcebooksFolder + file + classText).catch());
+
+        if (foundRace.ok) {
+            raceBoxes[raceBoxes.length] = file;
+        }
+
+        if (foundClass.ok) {
+            classBoxes[classBoxes.length] = file;
+        }
+
+        getFiles(iterator, raceBoxes, classBoxes)
+    }
+
+    findFile(current.value)
+}
+
+function createCheckboxes(raceBoxes, classBoxes) {
+    //keeps track of which line the race and class checkboxes should be on
+    let checkBoxAlign = new Map();
+
+    dict.forEach((value, key) => {
+        let amount = 0;
+        let belongs;
+
+        if (raceBoxes.includes(value)) {
+            amount++;
+            belongs = category.RACE;
+        }
+
+        if (classBoxes.includes(value)) {
+            amount++;
+            belongs = category.CLASS;
+        }
+
+        if (amount >= 2) {
+            belongs = category.ALL;
+        }
+
+        checkBoxAlign.set(value, belongs)
+    })
+
+    let appendRaceHTML = async function (curHTML, iterator) {
+        let current = iterator.next()
+
+        if (current.done) {
+            applyHTML("raceboxes", curHTML);
+            return;
+        }
+
+        switch (checkBoxAlign.get(current.value)) {
+            case category.RACE:
+            case category.ALL:
+                curHTML += "\n" +
+                    `<input type=\"checkbox\" id="${getKeyByValue(current.value)}R" checked> <br>`;
+                appendRaceHTML(curHTML, iterator);
+                break;
+            default:
+
+                curHTML += "\n" + "<br>";
+                appendRaceHTML(curHTML, iterator);
+        }
+    }
+
+    let appendClassHTML = async function (curHTML, iterator) {
+        let current = iterator.next();
+
+        if (current.done) {
+            applyHTML("classboxes", curHTML);
+            return;
+        }
+
+        switch (checkBoxAlign.get(current.value)) {
+            case category.CLASS:
+            case category.ALL:
+                fetch(sourcebooksFolder + current.value + titleText)
+                    .then(response => response.text())
+                    .then(data => {
+                        curHTML += "\n" +
+                            `<input type=\"checkbox\" id="${getKeyByValue(current.value)}C" checked>` +
+                            `<label for=\"${data}C\" style=\"font-size: 20px\">${data}</label><br>`;
+                        appendClassHTML(curHTML, iterator);
+                    })
+                break;
+            //labels for race are showing in the "class" section because the class is on the right column on the screen
+            case category.RACE:
+                fetch(sourcebooksFolder + current.value + titleText)
+                    .then(response => response.text())
+                    .then(data => {
+                        curHTML += "\n" + `<label for=\"${getKeyByValue(current.value)}R\" style=\"font-size: 20px\"><span class=raceoffset>${data}</label><br>`;
+                        appendClassHTML(curHTML, iterator);
+                    })
+                break;
+        }
+    }
+
+    appendRaceHTML("", checkBoxAlign.keys());
+    appendClassHTML("", checkBoxAlign.keys());
+}
+
+function applyHTML(id, HTML) {
+    document.getElementById(id).innerHTML = HTML;
+}
 
 function generateRace(result) {
     document.getElementById("race").innerHTML = result;
@@ -129,7 +256,6 @@ function generateMultipleRandomFromFile(func, file, amount) {
 function generate(func, array) {
     //'python -m http.server' while testing locally
     func(array[randomInt(array.length)]);
-
 }
 
 function generateMultiple(func, array, amount) {
@@ -170,4 +296,11 @@ function randomInts(max, amount) {
 
 function arraysEqual(a1, a2) {
     return JSON.stringify(a1) == JSON.stringify(a2);
+}
+
+function getKeyByValue(searchValue) {
+    for (let [key, value] of dict.entries()) {
+        if (value === searchValue)
+            return key;
+    }
 }
