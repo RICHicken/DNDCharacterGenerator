@@ -13,8 +13,8 @@
             padding-left: 55px;
         }
 
-        .raceoffset{
-            padding-left: 27px;
+        .raceoffset {
+            padding-left: 19px;
         }
 
         .button {
@@ -40,7 +40,7 @@
 
 </head>
 
-<body>
+<body onload=setup()>
     <script src="generator.js"></script>
     <div>
         <button class="button" onclick="startGenerate()">Generate</button>
@@ -52,24 +52,24 @@
                 <span style="font-size: 30px">Race: </span>
                 <span style="font-size: 20px" , id="race"></span>
             </div>
-    
+
             <div>
                 <span style="font-size: 30px">Class: </span>
                 <span style="font-size: 20px" , id="class"></span>
             </div>
-    
+
             <div>
                 <span style="font-size: 30px">Alignment: </span>
                 <span style="font-size: 20px" , id="alignment"></span>
             </div>
-    
+
             <div>
                 <span style="font-size: 30px">Traits: </span>
                 <label for="traits">How many traits: </label>
                 <select name="traits" id="traits">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
                 </select>
                 <p class="tab" style="font-size: 20px" , id="trait1"></p>
                 <p class="tab" style="font-size: 20px" , id="trait2"> </p>
@@ -80,36 +80,12 @@
         <div class=alignright>
             <div class=alignleft>
                 <p>R</p>
-                <p class=checkboxspace>
-                    <input type="checkbox" id="phR" checked ><br>
-                    <input type="checkbox" id="scagR" ><br>
-                    <input type="checkbox" id="mootR" ><br>
-                    <input type="checkbox" id="vgtmR" ><br>
-                    <input type="checkbox" id="egtwR" ><br>
-                    <input type="checkbox" id="ggtrR" ><br>
-                    <input type="checkbox" id="mtofR" ><br>
-                    <br>
-                    <input type="checkbox" id="eoacR" ><br>
-                </p>
-
+                <p class=checkboxspace id="raceboxes"></p>
             </div>
 
             <div class=alignright>
                 <p>C</p>
-                <p>
-                    <input type="checkbox" id="phC" checked>
-                    <label for="phC" style="font-size: 20px">Player Handbook</label><br>
-                    <label for="scagR" style="font-size: 20px"> <span class=raceoffset>  </span>Sword Coast Adventurer's Guide</label><br>
-                    <label for="mootE" style="font-size: 20px"> <span class=raceoffset></span>Mythic Odysseys of Theros</label><br>
-                    <label for="vgtmR" style="font-size: 20px"> <span class=raceoffset></span>Volo's Guide to Monsters</label><br>
-                    <input type="checkbox" id="egtwC" >
-                    <label for="egtwC" style="font-size: 20px">Explorer's Guide to Wildemount</label><br>
-                    <label for="ggtrR" style="font-size: 20px"><span class=raceoffset></span>Guildmasters's Guide to Ravnica</label><br>
-                    <label for="mtofR" style="font-size: 20px"><span class=raceoffset></span>Mordenkainen's Tome of Foes</label><br>
-                    <input type="checkbox" id="tcoeC" >
-                    <label for="tcoeC" style="font-size: 20px">Tasha's Cauldron of Everything</label><br>
-                    <label for="eoacR" style="font-size: 20px"> <span class=raceoffset></span>End of a Cycle</label><br>
-                </p>
+                <p id="classboxes"></p>
             </div>
         </div>
     </div>
