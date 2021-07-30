@@ -1,0 +1,215 @@
+{
+    "traits": [
+        "Shy",
+        "Calm",
+        "Noisy",
+        "Sad",
+        "Happy",
+        "Aggressive",
+        "Sleepy",
+        "Polite",
+        "Easygoing",
+        "Cautious",
+        "Sassy",
+        "Jealous",
+        "Clever",
+        "Compassionate",
+        "Confident",
+        "Excitable",
+        "Logical",
+        "Optimistic",
+        "Pessimistic",
+        "Serious",
+        "Grim",
+        "Stoic",
+        "Witty",
+        "Childish",
+        "Strict",
+        "Clumsy",
+        "Delicate",
+        "Grandiose",
+        "Moody",
+        "Pompous",
+        "Reserved",
+        "Timid",
+        "Parental",
+        "Relaxed",
+        "Lovable",
+        "Kind",
+        "Melancholy"
+    ],
+    "alignments": [
+        "Lawful Good",
+        "Lawful Neutral",
+        "Lawful Evil",
+        "Neutral Good",
+        "True Neutral",
+        "Neutral Evil",
+        "Chaotic Good",
+        "Chaotic Neutral",
+        "Chaotic Evil"
+    ],
+    "source": [
+        {
+            "symbol": "phb",
+            "title": "Player's Handbook",
+            "classes": [
+                "Barbarian",
+                "Bard",
+                "Cleric",
+                "Druid",
+                "Fighter",
+                "Monk ",
+                "Paladin",
+                "Ranger",
+                "Rogue",
+                "Sorcerer",
+                "Warlock",
+                "Wizard"
+            ],
+            "races": [
+                "Dragonborn",
+                "Hill Dwarf",
+                "Mountain Dwarf",
+                "Drow",
+                "High Elf",
+                "Wood Elf",
+                "Forest Gnome",
+                "Rock Gnome",
+                "Half-Elf",
+                "Half-Orc",
+                "Lightfoot Halfling",
+                "Stout Halfling",
+                "Human"
+            ]
+        },
+        {
+            "symbol": "scag",
+            "title": "Sword Coast Adventurer's Guide",
+            "classes": [],
+            "races": [
+                "Deep Gnome",
+                "Aquatic Half-Elf",
+                "Drow Half-Elf",
+                "Moon Half-Elf",
+                "Sun Half-Elf",
+                "Ghostwise Halfling",
+                "Devil’s Tongue Tiefling",
+                "Hellfire Tiefling",
+                "Infernal Legacy"
+            ]
+        },
+        {
+            "symbol": "moot",
+            "title": "Mythic Odysseys of Theros",
+            "classes": [],
+            "races": [
+                "Centaur",
+                "Leonin",
+                "Satyr",
+                "Triton"
+            ]
+        },
+        {
+            "symbol": "vgtm",
+            "title": "Volo's Guide to Monsters",
+            "classes": [],
+            "races": [
+                "Fallen Aasimar",
+                "Protector Aasimar",
+                "Scourge Aasimar",
+                "Bugbear",
+                "Firbolg",
+                "Goblin",
+                "Goliath",
+                "Hobgoblin",
+                "Kenku",
+                "Kobold",
+                "Lizardfolk",
+                "Orc",
+                "Tabaxi",
+                "Triton",
+                "Yuan-ti Pureblood"
+            ]
+        },
+        {
+            "symbol": "egtw",
+            "title": "Explorer's Guide to Wildemount",
+            "classes": ["Blood Hunter"],
+            "races": [
+                "Draconblood Dragonborn",
+                "Ravenite Dragonborn",
+                "Pallid Elf",
+                "Lotusden Halfling",
+                "Orc"
+            ]
+        },
+        {
+            "symbol": "ggtr",
+            "title": "Guildmasters's Guide to Ravnica",
+            "classes": [],
+            "races": [
+                "Centaur",
+                "Goblin",
+                "Loxodon",
+                "Minotaur",
+                "Simic Hybrid",
+                "Vedalken"
+            ]
+        },
+        {
+            "symbol": "mtof",
+            "title": "Mordenkainen's Tome of Foes",
+            "classes": [],
+            "races": [
+                "Duergar Dwarf",
+                "Eladrin Elf",
+                "Sea Elf",
+                "Shadar-kai Elf",
+                "Githyanki ",
+                "Githzerai",
+                "Asmodeus Tiefling",
+                "Baalzebul Tiefling",
+                "Dispater Tiefling",
+                "Fierna Tiefling",
+                "Glasya Tiefling",
+                "Levistus Tiefling",
+                "Mammon Tiefling",
+                "Mephistopheles Tiefling",
+                "Zariel Tiefling"
+            ]
+        },
+        {
+            "symbol": "tcoe",
+            "title": "Tasha's Cauldron of Everything",
+            "classes": ["Artificer"],
+            "races": []
+        },
+        {
+            "symbol": "eoac",
+            "title": "End of a Cycle",
+            "classes": [],
+            "races": [
+                "Valleyborn Human",
+                "Imperial Human",
+                "Ferisian Noble Human",
+                "Blood Elf",
+                "Silver Elf",
+                "Cherrywine Lapine",
+                "Honeymead Lapine",
+                "Shroomcap Goblin",
+                "Crag Goblin",
+                "Blood Orc",
+                "Cave Orc",
+                "Scholarly Dragonborn",
+                "Primal Dragonborn",
+                "Dawnmarked Leonin",
+                "Duskmarked Leonin",
+                "Silvertongue Oni",
+                "Shifter Oni",
+                "Pondspeaker Hyabu",
+                "Inquisitive Hyabu"
+            ]
+        }
+    ]
+}

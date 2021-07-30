@@ -1,94 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html>
+    <head>
+        <title>DND Character generator</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="generator.js"></script>
+    </head>
 
-<head>
-    <link rel="stylesheet" href="sheet.css">
-    <title>
-        Character Generator
-    </title>
-
-    <style>
-        .tab {
-            padding-left: 55px;
-        }
-
-        .raceoffset {
-            padding-left: 19px;
-        }
-
-        .button {
-            margin: auto;
-            position: relative;
-            float: left;
-            width: 100%;
-            height: 100px;
-        }
-
-        .checkboxspace {
-            padding-right: 10px;
-        }
-
-        .alignleft {
-            float: left;
-        }
-
-        .alignright {
-            float: right;
-        }
-    </style>
-
-</head>
-
-<body onload=setup()>
-    <script src="generator.js"></script>
-    <div>
-        <button class="button" onclick="startGenerate()">Generate</button>
-    </div>
-    <div>
-
-        <div class=alignleft>
-            <div>
-                <span style="font-size: 30px">Race: </span>
-                <span style="font-size: 20px" , id="race"></span>
+    <body>
+        <div class="container">
+            <div class="input">
+                <div>
+                    <button class="button" id="generate">Generate</button>                 
+                </div>
+                <br>
+                <div>
+                    <label for="traits">Traits: </label>
+                    <select name="traits" id="numtraits">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                <br>
             </div>
-
-            <div>
-                <span style="font-size: 30px">Class: </span>
-                <span style="font-size: 20px" , id="class"></span>
-            </div>
-
-            <div>
-                <span style="font-size: 30px">Alignment: </span>
-                <span style="font-size: 20px" , id="alignment"></span>
-            </div>
-
-            <div>
-                <span style="font-size: 30px">Traits: </span>
-                <label for="traits">How many traits: </label>
-                <select name="traits" id="traits">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-                <p class="tab" style="font-size: 20px" , id="trait1"></p>
-                <p class="tab" style="font-size: 20px" , id="trait2"> </p>
-                <p class="tab" style="font-size: 20px" , id="trait3"></p>
+            <div class="flex">
+                <div class="output">
+                    <div>
+                        <span class="category">Race:</span>
+                        <span class="result" id="race"></span>
+                    </div>
+                    <div>
+                        <span class="category">Class:</span>
+                        <span class="result" id="class"></span>
+                    </div>
+                    <div>
+                        <span class="category">Alignment:</span>
+                        <span class="result" id="alignment"></span>
+                    </div>
+                    <div class="flex">
+                        <div class="category">Traits:</div>
+                        <div class="result" id="traits"></div>
+                    </div>
+                </div>
+                <div class="spacer"></div>
+                <div class="sourcebooks">
+                    <table class="sourcetable" id="sources">
+                        <tr>
+                            <th>Race</th>
+                            <th>Class</th>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
-
-        <div class=alignright>
-            <div class=alignleft>
-                <p>R</p>
-                <p class=checkboxspace id="raceboxes"></p>
-            </div>
-
-            <div class=alignright>
-                <p>C</p>
-                <p id="classboxes"></p>
-            </div>
-        </div>
-    </div>
-</body>
-
+    </body>
 </html>

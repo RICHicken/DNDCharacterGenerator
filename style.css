@@ -1,0 +1,42 @@
+.container > :not(.flex) {
+    margin: 4px;
+}
+
+.input .button {
+    width: 100%;
+    height: 10vh;
+}
+
+.flex {
+    display: flex;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+.flex > div {
+    margin: 4px;
+}
+
+.output, .sourcebooks {
+    padding:4px;
+    border: black 1px solid;
+}
+
+.output .flex .trait:first-child {
+    margin-top: 8px;
+}
+
+.sourcetable{
+    -webkit-border-horizontal-spacing: 10px;
+}
+
+.category {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.result {
+    font-size: 20px;
+}
