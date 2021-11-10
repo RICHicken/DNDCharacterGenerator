@@ -210,6 +210,35 @@
                 "Pondspeaker Hyabu",
                 "Inquisitive Hyabu"
             ]
-        }
+        },
+		{
+			"symbol": "icorpg",
+			"title": "ICONrpg",
+			"classes": [
+				"Bastion",
+				"Demon Slayer",
+				"Knave",
+				"Head Lopper",
+				"Shade",
+				"Freelancer",
+				"Warden",
+				"Fool",
+				"Sealer",
+				"Chanter",
+				"Seer",
+				"Harvester",
+				"Enochian",
+				"Geomancer",
+				"Spellblade",
+				"Stormbender"
+			],
+			"races": [
+				"Rin",
+				"Drakyn",
+				"Virtue",
+				"Taruk",
+				"Aegis"
+			]
+		}
     ]
 }
