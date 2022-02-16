@@ -40,3 +40,10 @@
 .result {
     font-size: 20px;
 }
+
+@media(max-width: 768px) {
+    .flex {
+        display: block;
+    }
+    input[type=checkbox] {width:2em; height:2em;}
+}
