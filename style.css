@@ -41,7 +41,7 @@
     font-size: 20px;
 }
 
-@media(max-width: 768px) {
+@media(max-aspect-ratio: 3/4) {
     .flex {
         display: block;
     }
