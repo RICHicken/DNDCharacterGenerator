@@ -41,6 +41,23 @@
     font-size: 20px;
 }
 
+.darkmode {
+    background-color: #2a2a2a;
+    color: white;
+}
+
+.darkbutton {
+    background-color: #5c5c5c;
+    color: white;
+    border-color: white;
+}
+
+.darkboxes {
+    background-color: #2a2a2a;
+    color: white;
+    border-color: white;
+}
+
 @media only screen and (max-width: 768px) {
     .flex {
         display: block;

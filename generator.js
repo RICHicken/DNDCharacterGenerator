@@ -104,3 +104,11 @@ function createCheckBox(checked) {
     checkbox.checked = checked;
     return checkbox;
 }
+
+function toggleDark() {
+        document.body.classList.toggle("darkmode")
+        document.getElementById("generate").classList.toggle("darkbutton")
+        document.getElementById("dark").classList.toggle("darkbutton")
+        document.getElementById("sourcebooks").classList.toggle("darkboxes")
+        document.getElementById("output").classList.toggle("darkboxes")
+}

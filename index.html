@@ -12,6 +12,7 @@
 
     <body>
         <div class="container">
+            <button id="dark" name="dark" onclick="toggleDark()">Toggle Dark Mode</button>
             <div class="input">
                 <div>
                     <button class="button" id="generate">Generate</button>                 
@@ -28,7 +29,7 @@
                 <br>
             </div>
             <div class="flex">
-                <div class="output">
+                <div class="output" id="output">
                     <div>
                         <span class="category">Race:</span>
                         <span class="result" id="race"></span>
@@ -47,7 +48,7 @@
                     </div>
                 </div>
                 <div class="spacer"></div>
-                <div class="sourcebooks">
+                <div class="sourcebooks" id="sourcebooks">
                     <table class="sourcetable" id="sources">
                         <tr>
                             <th>Race</th>
